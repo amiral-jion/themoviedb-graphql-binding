@@ -1,4 +1,4 @@
-const typeDefs = 
+const typeDefs =
 `
 interface Movie {
     id: ID!
@@ -102,9 +102,17 @@ type Genre{
     name : String
 }
 
+type Result{
+    page : Int
+    total_results : Int
+    total_pages : Int
+    results : [MovieBasic]
+}
+
 type Query{
     searchByName( name: String! ) : [MovieBasic]
     searchByID  ( id : String! )  : MovieDetail
+    getLatestMovies(months: Int, page: Int) : Result
 }
 `;
 export default typeDefs
